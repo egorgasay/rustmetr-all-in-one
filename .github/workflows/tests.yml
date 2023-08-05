@@ -48,7 +48,7 @@ jobs:
           apt install -y cargo
           rustup toolchain install 1.65.0
           rustup override set 1.65.0
-          cargo install cargo --version 1.65.0
+#          cargo install cargo --version 1.65.0
 
       - name: Set up Go
         uses: actions/setup-go@v2

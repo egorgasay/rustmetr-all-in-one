@@ -77,7 +77,7 @@ jobs:
           chmod +x target/debug/rustmetric
           cd ..
           mv rustmetr/target/debug/rustmetric bin/server
-          chmod +x bin/server
+          export PATH=$PATH:$(pwd)/bin/server
 
       - name: "Code increment #1"
         if: |

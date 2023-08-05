@@ -39,7 +39,7 @@ jobs:
 
       - name: Установка glibc_2.32
         run: |
-          apt-get update && aptitude install build-essential
+          apt-get update && apr-get install build-essential
 #           apt install libc6 -y
 
       - name: Set up Go

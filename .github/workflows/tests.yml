@@ -39,8 +39,8 @@ jobs:
 
       - name: Установка glibc_2.32
         run: |
-          apt-get update
-          apt-get install software-properties-common
+          apt-get update -y
+          apt-get install -y software-properties-common
           add-apt-repository ppa:ubuntu-toolchain-r/test
           apt-get update
           apt-get install -y libc6=2.32-0ubuntu3~20.04.7

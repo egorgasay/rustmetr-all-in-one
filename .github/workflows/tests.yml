@@ -55,7 +55,7 @@ jobs:
 
       - name: Build server binary
         run: |
-          apt-get install golang -y
+          snap install go  --classic
           git clone https://github.com/egorgasay/rustmetr
           cd rustmetr
           cargo build

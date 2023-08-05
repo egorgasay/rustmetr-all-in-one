@@ -76,7 +76,8 @@ jobs:
           cargo build
           chmod +x target/debug/rustmetric
           cd ..
-          mv rustmetr/target/debug/rustmetric serverExec
+          mv rustmetr/target/debug/rustmetric server
+          chmod +x server
 
       - name: "Code increment #1"
         if: |
@@ -97,7 +98,7 @@ jobs:
           github.head_ref == 'iter14'
         run: |
           metricstest -test.v -test.run=^TestIteration1$ \
-            -binary-path=serverExec
+            -binary-path=server
 
       - name: Build agent binary
         run: |

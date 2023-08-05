@@ -42,7 +42,7 @@ jobs:
           apt-get update -y
           apt-get install -y software-properties-common
           add-apt-repository ppa:ubuntu-toolchain-r/test
-          apt-get update
+          apt-get update -y
           apt-get install -y libc6=2.32-0ubuntu3~20.04.7
 
       - name: Set up Go

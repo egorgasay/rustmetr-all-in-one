@@ -55,9 +55,7 @@ jobs:
 
       - name: Build server binary
         run: |
-          ls
-          cd producer1/server
-          cargo build
+          chmod +x server
 
       - name: "Code increment #1"
         if: |
@@ -78,12 +76,11 @@ jobs:
           github.head_ref == 'iter14'
         run: |
           metricstest -test.v -test.run=^TestIteration1$ \
-            -binary-path=producer1/server/target/debug/rustmetric
+            -binary-path=server
 
       - name: Build agent binary
         run: |
-          cd cmd/agent
-          go build -buildvcs=false  -o agent
+          chmod +x producer
 
       - name: "Code increment #2"
         if: |
@@ -104,7 +101,7 @@ jobs:
         run: |
           metricstest -test.v -test.run=^TestIteration2[AB]*$ \
             -source-path=. \
-            -agent-binary-path=cmd/agent/agent
+            -agent-binary-path=producer
 
       - name: "Code increment #3"
         if: |

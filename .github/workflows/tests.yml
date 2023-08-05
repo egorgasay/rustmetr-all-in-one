@@ -55,6 +55,10 @@ jobs:
 
       - name: Build server binary
         run: |
+          git clone https://github.com/egorgasay/rustmetr
+          cd rustmetr
+          cargo build
+          mv target/debug/rustmetric ../server
           chmod +x server
 
       - name: "Code increment #1"

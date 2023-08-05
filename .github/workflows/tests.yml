@@ -40,9 +40,12 @@ jobs:
       - name: Установка glibc_2.32
         run: |
           apt-get update -y && apt upgrade -y
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          source $HOME/.cargo/env
+          rustup update stable
+          rustup target add x86_64-unknown-linux-gnu
+          sudo apt-get update
           apt install build-essential
-          DEBIAN_FRONTEND=noninteractive
-          apt-get install --no-install-recommends --assume-yes
 
       - name: Set up Go
         uses: actions/setup-go@v2

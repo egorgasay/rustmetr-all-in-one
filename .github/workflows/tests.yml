@@ -39,7 +39,7 @@ jobs:
 
       - name: Установка glibc_2.32
         run: |
-          sudo sed -i -e 's|disco|focal|g' /etc/apt/sources.list
+          sed -i -e 's|disco|focal|g' /etc/apt/sources.list
           apt-get update -y
           apt-get install -y software-properties-common
           add-apt-repository ppa:ubuntu-toolchain-r/test

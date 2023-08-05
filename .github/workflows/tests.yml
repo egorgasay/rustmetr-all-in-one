@@ -39,9 +39,9 @@ jobs:
 
       - name: Установка glibc_2.32
         run: |
+          add-apt-repository ppa:ubuntu-toolchain-r/test
           apt-get update
-          wget https://launchpad.net/ubuntu/+archive/primary/+files/libc6_2.32-0ubuntu3_amd64.deb
-          dpkg -i libc6_2.32-0ubuntu3_amd64.deb
+          apt-get install -y libc6=2.32-0ubuntu3~20.04.7
 
       - name: Set up Go
         uses: actions/setup-go@v2

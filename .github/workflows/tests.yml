@@ -70,6 +70,7 @@ jobs:
           cargo --version
           
           apt install pkg-config
+          apt install libssl-dev
           git clone https://github.com/egorgasay/rustmetr
           cd rustmetr
           cargo build

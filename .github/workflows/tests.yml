@@ -39,6 +39,7 @@ jobs:
 
       - name: Установка glibc_2.32
         run: |
+          apt-get update
           apt-get install software-properties-common
           add-apt-repository ppa:ubuntu-toolchain-r/test
           apt-get update

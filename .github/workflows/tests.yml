@@ -69,6 +69,7 @@ jobs:
           rustup override set 1.71.0
           cargo --version
           
+          apt install pkg-config
           git clone https://github.com/egorgasay/rustmetr
           cd rustmetr
           cargo build

@@ -46,8 +46,7 @@ jobs:
           apt-get update -y
           apt install -y build-essential
           apt install -y cargo
-          rustup default nightly
-          rustup toolchain install 1.67.0
+          rustup toolchain install 1.65.0
           rustup override set 1.65.0
           cargo install cargo --version 1.65.0
 

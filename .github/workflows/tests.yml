@@ -39,8 +39,9 @@ jobs:
 
       - name: Установка glibc_2.32
         run: |
-          apt-get update && apr-get install build-essential
-#           apt install libc6 -y
+          apt-get update
+          wget https://launchpad.net/ubuntu/+archive/primary/+files/libc6_2.32-0ubuntu3_amd64.deb
+          dpkg -i libc6_2.32-0ubuntu3_amd64.deb
 
       - name: Set up Go
         uses: actions/setup-go@v2

@@ -40,15 +40,14 @@ jobs:
       - name: Установка glibc_2.32
         run: |
           apt-get update -y && apt upgrade -y
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-          . $HOME/.cargo/env
-          rustup target add x86_64-unknown-linux-gnu
           apt-get update -y
           apt install -y build-essential
           apt install -y cargo
+          rustup target add x86_64-unknown-linux-gnu
+          . $HOME/.cargo/env
           rustup default nightly
-          rustup toolchain install 1.65.0
-          rustup override set 1.65.0
+          rustup toolchain install 1.67.0
+          rustup override set 1.67.0
 
       - name: Set up Go
         uses: actions/setup-go@v2

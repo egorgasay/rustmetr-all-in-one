@@ -99,7 +99,7 @@ jobs:
         run: |
           ls
           metricstest -test.v -test.run=^TestIteration1$ \
-            -binary-path=server
+            -binary-path=bin/server
 
       - name: Build agent binary
         run: |

@@ -76,17 +76,17 @@ jobs:
           cargo build
           chmod +x target/debug/rustmetric
           cd ..
-          mv rustmetr/target/debug/rustmetric server
+          mv rustmetr/target/debug/rustmetric bin/server
           export PATH=$PATH:$(pwd)/server
           
-          echo '==============producer==============='
+          echo '==============bin/producer==============='
           git clone https://github.com/egorgasay/rustmetr-producer
           cd rustmetr-producer
           cargo build
           chmod +x target/debug/rustmetric
           cd ..
-          mv rustmetr-producer/target/debug/rustmetric producer
-          export PATH=$PATH:$(pwd)/producer
+          mv rustmetr-producer/target/debug/rustmetric bin/producer
+          export PATH=$PATH:$(pwd)/bin/producer
 
       - name: "Code increment #1"
         if: |
@@ -108,7 +108,7 @@ jobs:
         run: |
           ls
           metricstest -test.v -test.run=^TestIteration1$ \
-            -binary-path=server
+            -binary-path=bin/server
 
       - name: "Code increment #2"
         if: |
@@ -129,7 +129,7 @@ jobs:
         run: |
           metricstest -test.v -test.run=^TestIteration2[A]*$ \
             -source-path=. \
-            -agent-binary-path=producer
+            -agent-binary-path=bin/producer
 
       - name: "Code increment #3"
         if: |
@@ -149,8 +149,8 @@ jobs:
         run: |
           metricstest -test.v -test.run=^TestIteration3[AB]*$ \
             -source-path=. \
-            -agent-binary-path=producer \
-            -binary-path=server
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server
 
       - name: "Code increment #4"
         if: |
@@ -171,8 +171,8 @@ jobs:
           ADDRESS="localhost:${SERVER_PORT}"
           TEMP_FILE=$(random tempfile)
           metricstest -test.v -test.run=^TestIteration4$ \
-            -agent-binary-path=producer \
-            -binary-path=server \
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server \
             -server-port=$SERVER_PORT \
             -source-path=.
 
@@ -194,8 +194,8 @@ jobs:
           ADDRESS="localhost:${SERVER_PORT}"
           TEMP_FILE=$(random tempfile)
           metricstest -test.v -test.run=^TestIteration5$ \
-            -agent-binary-path=producer \
-            -binary-path=server \
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server \
             -server-port=$SERVER_PORT \
             -source-path=.
 
@@ -216,8 +216,8 @@ jobs:
           ADDRESS="localhost:${SERVER_PORT}"
           TEMP_FILE=$(random tempfile)
           metricstest -test.v -test.run=^TestIteration6$ \
-            -agent-binary-path=producer \
-            -binary-path=server \
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server \
             -server-port=$SERVER_PORT \
             -source-path=.
 
@@ -237,8 +237,8 @@ jobs:
           ADDRESS="localhost:${SERVER_PORT}"
           TEMP_FILE=$(random tempfile)
           metricstest -test.v -test.run=^TestIteration7$ \
-            -agent-binary-path=producer \
-            -binary-path=server \
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server \
             -server-port=$SERVER_PORT \
             -source-path=.
 
@@ -257,8 +257,8 @@ jobs:
           ADDRESS="localhost:${SERVER_PORT}"
           TEMP_FILE=$(random tempfile)
           metricstest -test.v -test.run=^TestIteration8$ \
-            -agent-binary-path=producer \
-            -binary-path=server \
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server \
             -server-port=$SERVER_PORT \
             -source-path=.
 
@@ -276,8 +276,8 @@ jobs:
           ADDRESS="localhost:${SERVER_PORT}"
           TEMP_FILE=$(random tempfile)
           metricstest -test.v -test.run=^TestIteration9$ \
-            -agent-binary-path=producer \
-            -binary-path=server \
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server \
             -file-storage-path=$TEMP_FILE \
             -server-port=$SERVER_PORT \
             -source-path=.
@@ -295,8 +295,8 @@ jobs:
           ADDRESS="localhost:${SERVER_PORT}"
           TEMP_FILE=$(random tempfile)
           metricstest -test.v -test.run=^TestIteration10[AB]$ \
-            -agent-binary-path=producer \
-            -binary-path=server \
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server \
             -database-dsn='postgres://postgres:postgres@postgres:5432/praktikum?sslmode=disable' \
             -server-port=$SERVER_PORT \
             -source-path=.
@@ -313,8 +313,8 @@ jobs:
           ADDRESS="localhost:${SERVER_PORT}"
           TEMP_FILE=$(random tempfile)
           metricstest -test.v -test.run=^TestIteration11$ \
-            -agent-binary-path=producer \
-            -binary-path=server \
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server \
             -database-dsn='postgres://postgres:postgres@postgres:5432/praktikum?sslmode=disable' \
             -server-port=$SERVER_PORT \
             -source-path=.
@@ -330,8 +330,8 @@ jobs:
           ADDRESS="localhost:${SERVER_PORT}"
           TEMP_FILE=$(random tempfile)
           metricstest -test.v -test.run=^TestIteration12$ \
-            -agent-binary-path=producer \
-            -binary-path=server \
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server \
             -database-dsn='postgres://postgres:postgres@postgres:5432/praktikum?sslmode=disable' \
             -server-port=$SERVER_PORT \
             -source-path=.
@@ -346,8 +346,8 @@ jobs:
           ADDRESS="localhost:${SERVER_PORT}"
           TEMP_FILE=$(random tempfile)
           metricstest -test.v -test.run=^TestIteration13$ \
-            -agent-binary-path=producer \
-            -binary-path=server \
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server \
             -database-dsn='postgres://postgres:postgres@postgres:5432/praktikum?sslmode=disable' \
             -server-port=$SERVER_PORT \
             -source-path=.
@@ -361,8 +361,8 @@ jobs:
           ADDRESS="localhost:${SERVER_PORT}"
           TEMP_FILE=$(random tempfile)
           metricstest -test.v -test.run=^TestIteration14$ \
-            -agent-binary-path=producer \
-            -binary-path=server \
+            -agent-binary-path=bin/producer \
+            -binary-path=bin/server \
             -database-dsn='postgres://postgres:postgres@postgres:5432/praktikum?sslmode=disable' \
             -key="${TEMP_FILE}" \
             -server-port=$SERVER_PORT \

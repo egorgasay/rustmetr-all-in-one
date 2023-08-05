@@ -54,7 +54,7 @@ jobs:
       - name: Install GLIBC_2.32
         run: |
           wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-2.32-r0.apk
-          sudo apk add --no-cache --allow-untrusted glibc-2.32-r0.apk
+          apk add --no-cache --allow-untrusted glibc-2.32-r0.apk
 
       - name: Setup autotest binary
         run: |

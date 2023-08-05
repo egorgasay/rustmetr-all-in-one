@@ -42,10 +42,19 @@ jobs:
           wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-2.32-r0.deb
           dpkg -i glibc-2.32-r0.deb
 
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.17
+      - name: Установка Go и glibc_2.32
+        run: |
+          apt-get install -y build-essential
+          add-apt-repository -y ppa:ubuntu-toolchain-r/test
+          apt-get update -qq
+          apt-get install -y golang-go
+          wget https://launchpad.net/ubuntu/+archive/primary/+files/libc6_2.32-0ubuntu3_amd64.deb
+          dpkg -i libc6_2.32-0ubuntu3_amd64.deb
+#
+#      - name: Set up Go
+#        uses: actions/setup-go@v2
+#        with:
+#          go-version: 1.17
 
       - name: Download autotests binaries
         uses: robinraju/release-downloader@v1.7

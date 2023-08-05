@@ -39,10 +39,8 @@ jobs:
 
       - name: Установка glibc_2.32
         run: |
-          apt-get update -y
-          apt-get install -y software-properties-common
-          apt-get install -y libc6=2.32-0ubuntu3~20.04.7
-
+          apt-get update -y && apt upgrade -y
+          apt update && sudo apt upgrade
       - name: Set up Go
         uses: actions/setup-go@v2
         with:

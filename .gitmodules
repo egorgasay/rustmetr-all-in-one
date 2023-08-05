@@ -1,0 +1,6 @@
+[submodule "producer1"]
+	path = producer1
+	url = https://github.com/egorgasay/rustmetr-producer
+[submodule "server1"]
+	path = server1
+	url = https://github.com/egorgasay/rustmetr

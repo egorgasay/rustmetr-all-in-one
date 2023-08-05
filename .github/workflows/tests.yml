@@ -55,6 +55,7 @@ jobs:
 
       - name: Build server binary
         run: |
+          ls
           cd producer1/server
           cargo build
 

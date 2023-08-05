@@ -76,8 +76,8 @@ jobs:
           cargo build
           chmod +x target/debug/rustmetric
           cd ..
-          mv rustmetr/target/debug/rustmetric server
-          chmod +x server
+          mv rustmetr/target/debug/rustmetric bin/server
+          chmod +x bin/server
 
       - name: "Code increment #1"
         if: |

@@ -37,6 +37,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install GLIBC_2.32
+        run: |
+          wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-2.32-r0.deb
+          dpkg -i glibc-2.32-r0.deb
+
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
@@ -50,11 +55,6 @@ jobs:
           fileName: "*"
           out-file-path: .tools
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install GLIBC_2.32
-        run: |
-          wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-2.32-r0.apk
-          apk add --no-cache --allow-untrusted glibc-2.32-r0.apk
 
       - name: Setup autotest binary
         run: |

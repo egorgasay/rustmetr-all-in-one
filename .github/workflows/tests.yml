@@ -37,6 +37,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+
       - name: Download autotests binaries
         uses: robinraju/release-downloader@v1.7
         with:
@@ -55,17 +60,6 @@ jobs:
 
       - name: Build server binary
         run: |
-          mkdir glibc/ && cd glibc
-          wget http://ftp.gnu.org/gnu/libc/glibc-2.32.tar.gz
-          tar -xvzf glibc-2.32.tar.gz
-          mkdir build 
-          mkdir glibc-2.32-install
-          cd build
-          cd ..
-          glibc/glibc-2.32/configure --prefix=$(pwd)glibc/glibc-2.32-install
-          cd glibc/build
-          make
-          make install
           git clone https://github.com/egorgasay/rustmetr
           cd rustmetr
           cargo build

@@ -26,9 +26,14 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
+
       - uses: actions-rs/cargo@v1
         with:
-          command: check
+          command: cd producer1 && check || cd ..
+
+      - uses: actions-rs/cargo@v1
+        with:
+          command: cd server1 && check || cd ..
 
   uint_test:
    name: Test Suite

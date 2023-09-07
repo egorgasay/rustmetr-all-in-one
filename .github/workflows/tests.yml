@@ -27,19 +27,15 @@ jobs:
           toolchain: stable
           override: true
 
-      - name: Change directory
-        run: cd producer1
-
       - uses: actions-rs/cargo@v1
+        run: cd producer1
         with:
           command: check
 
-      - name: Change directory
-        run: cd .. && cd server1
-
       - uses: actions-rs/cargo@v1
+        run: cd server1
         with:
-          command: cd server1 && check || cd ..
+          command: check
 
   uint_test:
    name: Test Suite
